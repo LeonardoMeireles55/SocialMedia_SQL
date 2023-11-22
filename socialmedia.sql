@@ -229,18 +229,6 @@ INSERT INTO `comments` VALUES
 (13,9,8,'Me espera que vou junto','2023-11-21 12:49:09'),
 (14,10,9,'Mostra fotos, quero ver todos!','2023-11-21 20:49:09');
 
-INSERT INTO `comments` VALUES
-(5,1,4,'Se Deus permitir!!!','2023-11-20 20:37:34'),
-(6,2,3,'Calor dos infernoooo','2023-11-20 20:38:41'),
-(7,3,1,'E verdadeeee','2023-11-20 19:00:36'),
-(8,4,2,'Fiz um projeto com ele, mó legal','2023-11-20 18:00:01'),
-(9,5,10,'Eu também!!','2023-11-21 22:47:50'),
-(10,6,5,'Nem me faleeee','2023-11-21 22:40:50'),
-(11,7,6,'Os estudos que esta me matando','2023-11-21 22:00:50'),
-(12,8,7,'eu quero um pedaçooo','2023-11-21 13:47:50'),
-(13,9,8,'Me espera que vou junto','2023-11-21 12:49:09'),
-(14,10,9,'Mostra fotos, quero ver todos!','2023-11-21 20:49:09');
-
 
 INSERT INTO `likes` VALUES
 (2,1,4,'2023-11-20 21:05:39'),
