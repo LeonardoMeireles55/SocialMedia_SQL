@@ -189,3 +189,291 @@ DELIMITER ;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+DROP TABLE IF EXISTS `chats`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chats` (
+  `id_chats` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_sender` int(11) NOT NULL,
+  `fk_receiver` int(11) NOT NULL,
+  `chat_text` varchar(255) DEFAULT NULL,
+  `chat_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_chats`),
+  KEY `fk_sender` (`fk_sender`),
+  KEY `fk_receiver` (`fk_receiver`),
+  CONSTRAINT `chats_ibfk_1` FOREIGN KEY (`fk_sender`) REFERENCES `users` (`id_users`),
+  CONSTRAINT `chats_ibfk_2` FOREIGN KEY (`fk_receiver`) REFERENCES `users` (`id_users`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chats`
+--
+
+LOCK TABLES `chats` WRITE;
+/*!40000 ALTER TABLE `chats` DISABLE KEYS */;
+INSERT INTO `chats` VALUES
+(1,1,2,'Vamos sair para comer açai ?','2023-11-20 21:51:41'),
+(2,2,3,'Vai para faculdade amanha ?','2023-11-20 20:02:23'),
+(3,3,1,' Vai fazer o que amanha ?','2023-11-20 11:54:55'),
+(4,4,2,'Você vai fazer a prova quando ?','2023-11-20 13:20:55'),
+(5,5,4,'Comprou algo na blackfriday?','2023-11-21 22:42:58'),
+(6,6,1,'Vai fazer o que no fim de semana ?','2023-11-21 22:00:58'),
+(7,7,4,'Começou a fazer o trabalho?','2023-11-21 21:30:58'),
+(8,8,1,'Esta fazendo o que agora ?','2023-11-21 13:42:58'),
+(9,9,2,'Gostou do açai de ontem ?','2023-11-21 22:43:56'),
+(10,10,3,'Não consegui entender nada da aula..','2023-11-21 22:40:21');
+/*!40000 ALTER TABLE `chats` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `comments` (
+  `id_comments` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_user` int(11) NOT NULL,
+  `fk_post` int(11) NOT NULL,
+  `comment_text` varchar(255) DEFAULT NULL,
+  `comment_time` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_comments`),
+  KEY `fk_user` (`fk_user`),
+  KEY `fk_post` (`fk_post`),
+  CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`fk_user`) REFERENCES `users` (`id_users`),
+  CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`fk_post`) REFERENCES `posts` (`id_posts`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `comments`
+--
+
+LOCK TABLES `comments` WRITE;
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+INSERT INTO `comments` VALUES
+(5,1,4,'Se Deus permitir!!!','2023-11-20 20:37:34'),
+(6,2,3,'Calor dos infernoooo','2023-11-20 20:38:41'),
+(7,3,1,'E verdadeeee','2023-11-20 19:00:36'),
+(8,4,2,'Fiz um projeto com ele, mó legal','2023-11-20 18:00:01'),
+(9,5,10,'Eu também!!','2023-11-21 22:47:50'),
+(10,6,5,'Nem me faleeee','2023-11-21 22:40:50'),
+(11,7,6,'Os estudos que esta me matando','2023-11-21 22:00:50'),
+(12,8,7,'eu quero um pedaçooo','2023-11-21 13:47:50'),
+(13,9,8,'Me espera que vou junto','2023-11-21 12:49:09'),
+(14,10,9,'Mostra fotos, quero ver todos!','2023-11-21 20:49:09');
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `connections`
+--
+
+DROP TABLE IF EXISTS `connections`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `connections` (
+  `id_connections` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_user` int(11) NOT NULL,
+  `fk_friend` int(11) NOT NULL,
+  `connection_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_connections`),
+  KEY `fk_user` (`fk_user`),
+  KEY `fk_friend` (`fk_friend`),
+  CONSTRAINT `connections_ibfk_1` FOREIGN KEY (`fk_user`) REFERENCES `users` (`id_users`),
+  CONSTRAINT `connections_ibfk_2` FOREIGN KEY (`fk_friend`) REFERENCES `users` (`id_users`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `connections`
+--
+
+LOCK TABLES `connections` WRITE;
+/*!40000 ALTER TABLE `connections` DISABLE KEYS */;
+INSERT INTO `connections` VALUES
+(1,1,2,'2023-11-20 21:23:24'),
+(2,2,3,'2023-11-20 21:00:24'),
+(3,3,1,'2023-11-20 19:15:52'),
+(4,4,3,'2023-11-20 18:10:43'),
+(5,2,4,'2023-11-20 13:24:59'),
+(6,5,4,'2023-11-21 22:50:17'),
+(7,6,1,'2023-11-21 23:00:47'),
+(8,7,6,'2023-11-21 22:00:47'),
+(9,8,9,'2023-11-21 13:00:47'),
+(10,10,1,'2023-11-21 12:00:47');
+/*!40000 ALTER TABLE `connections` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `likes`
+--
+
+DROP TABLE IF EXISTS `likes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `likes` (
+  `id_likes` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_post` int(11) NOT NULL,
+  `fk_user` int(11) NOT NULL,
+  `like_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_likes`),
+  KEY `fk_post` (`fk_post`),
+  KEY `fk_user` (`fk_user`),
+  CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`fk_post`) REFERENCES `posts` (`id_posts`),
+  CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`fk_user`) REFERENCES `users` (`id_users`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `likes`
+--
+
+LOCK TABLES `likes` WRITE;
+/*!40000 ALTER TABLE `likes` DISABLE KEYS */;
+INSERT INTO `likes` VALUES
+(2,1,4,'2023-11-20 21:05:39'),
+(3,1,3,'2023-11-20 21:00:28'),
+(4,2,1,'2023-11-20 20:40:28'),
+(5,3,2,'2023-11-20 21:09:28'),
+(6,4,4,'2023-11-20 21:05:28'),
+(7,5,10,'2023-11-21 23:07:15'),
+(8,6,10,'2023-11-21 23:00:15'),
+(9,9,5,'2023-11-21 22:07:15'),
+(10,9,7,'2023-11-21 23:00:15'),
+(11,9,3,'2023-11-21 23:05:15');
+/*!40000 ALTER TABLE `likes` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`leonardo`@`localhost`*/ /*!50003 TRIGGER prevent_duplicate_likes
+    BEFORE INSERT ON likes
+    FOR EACH ROW
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM likes
+        WHERE fk_post = NEW.fk_post AND fk_user = NEW.fk_user
+    ) THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Não é permitido dar mais de um like no mesmo post.';
+    END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`leonardo`@`localhost`*/ /*!50003 TRIGGER increment_like_count
+    AFTER INSERT ON likes
+    FOR EACH ROW
+BEGIN
+    UPDATE posts
+    SET likes_count = likes_count + 1
+    WHERE id_posts = NEW.fk_post;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Table structure for table `posts`
+--
+
+DROP TABLE IF EXISTS `posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `posts` (
+  `id_posts` int(11) NOT NULL AUTO_INCREMENT,
+  `fk_user` int(11) NOT NULL,
+  `text_posts` varchar(255) DEFAULT NULL,
+  `time_posts` timestamp NOT NULL DEFAULT current_timestamp(),
+  `likes_count` int(11) DEFAULT 0,
+  PRIMARY KEY (`id_posts`),
+  KEY `fk_user` (`fk_user`),
+  CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`fk_user`) REFERENCES `users` (`id_users`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `posts`
+--
+
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+INSERT INTO `posts` VALUES
+(1,3,'O leonardo é muito bonito.','2023-11-20 19:38:07',2),
+(2,2,'Leronardo é muito chato','2023-11-20 20:12:40',1),
+(3,1,'O dia está quente!','2023-11-20 20:10:40',1),
+(4,4,'Vamos passar de ano!!','2023-11-20 19:32:40',1),
+(5,5,'Estou com duvida no trabalho','2023-11-21 23:03:34',1),
+(6,6,'Meu trabalho está me matando!!','2023-11-21 23:03:34',1),
+(7,7,'Vou fazer um bolo delicioso!','2023-11-21 23:03:34',0),
+(8,8,'Estou indo pra academia!!','2023-11-21 23:03:34',0),
+(9,9,'Adotei mais um gato!!','2023-11-21 23:03:34',3),
+(10,10,'Hoje tenho que arrumar a casa!','2023-11-21 23:03:34',0),
+(11,1,'Não vou para prova dia 25.11','2023-11-22 13:33:55',0),
+(12,2,'Estou com fome!!','2023-11-22 13:30:55',0);
+/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id_users` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(25) NOT NULL,
+  `cpf` varchar(25) NOT NULL,
+  `date_birth` date NOT NULL,
+  `email` varchar(25) DEFAULT NULL,
+  `password` varchar(35) DEFAULT NULL,
+  PRIMARY KEY (`id_users`),
+  UNIQUE KEY `cpf` (`cpf`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES
+(1,'João Silva','123.456.789-01','1990-01-01','joao@email.com','senha123'),
+(2,'Carlos Santos','456.789.012-34','1982-11-30','carlos@email.com','senha789'),
+(3,'Maria Oliveira','987.654.321-09','1985-05-15','maria@email.com','senha456'),
+(4,'Ana Lima','234.567.890-12','1992-08-12','ana@email.com','senha234'),
+(5,'Alyne Martins','065.120.957-12','1997-10-27','alyne@email.com','senha1206'),
+(6,'Joana Porfirio','458.687.253-12','1990-09-09','joana@email.com','senha524'),
+(7,'Conceição  Linhares','789.456.124-56','1987-12-12','conceicao@email.com','senha457'),
+(8,'Leonardo Meireles','4526.701.234-85','1995-12-12','leo@email.com','senha478'),
+(9,'Hanna Pereira','321.654.987-85','1987-10-10','hanna@email.com','senha753'),
+(10,'Jullie Jany','451.743.873-95','1996-01-03','jullie@email.com','senha852'),
+(11,'Judity Martins','987.452.337-96','2020-03-06','judity@email.com','senha951');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
