@@ -156,7 +156,6 @@ USE `socialmedia_api`;
 DELIMITER $$
 USE `socialmedia_api`$$
 CREATE
-DEFINER=`leonardo`@`localhost`
 TRIGGER `socialmedia_api`.`increment_like_count`
 AFTER INSERT ON `socialmedia_api`.`likes`
 FOR EACH ROW
@@ -168,7 +167,6 @@ END$$
 
 USE `socialmedia_api`$$
 CREATE
-DEFINER=`leonardo`@`localhost`
 TRIGGER `socialmedia_api`.`prevent_duplicate_likes`
 BEFORE INSERT ON `socialmedia_api`.`likes`
 FOR EACH ROW
@@ -239,7 +237,7 @@ INSERT INTO `likes` VALUES
 (7,5,10,'2023-11-21 23:07:15'),
 (8,6,10,'2023-11-21 23:00:15'),
 (9,9,5,'2023-11-21 22:07:15'),
-(10,9,7,'2023-11-21 23:00:15'),
+(10,9,7,'2023-11-21 23:00:15');
 
 
 INSERT INTO `connections` VALUES
