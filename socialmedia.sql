@@ -190,54 +190,18 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-INSERT INTO `chats` VALUES
-(1,1,2,'Vamos sair para comer açai ?','2023-11-20 21:51:41'),
-(2,2,3,'Vai para faculdade amanha ?','2023-11-20 20:02:23'),
-(3,3,1,' Vai fazer o que amanha ?','2023-11-20 11:54:55'),
-(4,4,2,'Você vai fazer a prova quando ?','2023-11-20 13:20:55'),
-(5,5,4,'Comprou algo na blackfriday?','2023-11-21 22:42:58'),
-(6,6,1,'Vai fazer o que no fim de semana ?','2023-11-21 22:00:58'),
-(7,7,4,'Começou a fazer o trabalho?','2023-11-21 21:30:58'),
-(8,8,1,'Esta fazendo o que agora ?','2023-11-21 13:42:58'),
-(9,9,2,'Gostou do açai de ontem ?','2023-11-21 22:43:56'),
-(10,10,3,'Não consegui entender nada da aula..','2023-11-21 22:40:21');
-
-INSERT INTO `comments` VALUES
-(5,1,4,'Se Deus permitir!!!','2023-11-20 20:37:34'),
-(6,2,3,'Calor dos infernoooo','2023-11-20 20:38:41'),
-(7,3,1,'E verdadeeee','2023-11-20 19:00:36'),
-(8,4,2,'Fiz um projeto com ele, mó legal','2023-11-20 18:00:01'),
-(9,5,10,'Eu também!!','2023-11-21 22:47:50'),
-(10,6,5,'Nem me faleeee','2023-11-21 22:40:50'),
-(11,7,6,'Os estudos que esta me matando','2023-11-21 22:00:50'),
-(12,8,7,'eu quero um pedaçooo','2023-11-21 13:47:50'),
-(13,9,8,'Me espera que vou junto','2023-11-21 12:49:09'),
-(14,10,9,'Mostra fotos, quero ver todos!','2023-11-21 20:49:09');
-
-
-INSERT INTO `connections` VALUES
-(1,1,2,'2023-11-20 21:23:24'),
-(2,2,3,'2023-11-20 21:00:24'),
-(3,3,1,'2023-11-20 19:15:52'),
-(4,4,3,'2023-11-20 18:10:43'),
-(5,2,4,'2023-11-20 13:24:59'),
-(6,5,4,'2023-11-21 22:50:17'),
-(7,6,1,'2023-11-21 23:00:47'),
-(8,7,6,'2023-11-21 22:00:47'),
-(9,8,9,'2023-11-21 13:00:47'),
-(10,10,1,'2023-11-21 12:00:47');
-
-
-INSERT INTO `likes` VALUES
-(2,1,4,'2023-11-20 21:05:39'),
-(3,1,3,'2023-11-20 21:00:28'),
-(4,2,1,'2023-11-20 20:40:28'),
-(5,3,2,'2023-11-20 21:09:28'),
-(6,4,4,'2023-11-20 21:05:28'),
-(7,5,10,'2023-11-21 23:07:15'),
-(8,6,10,'2023-11-21 23:00:15'),
-(9,9,5,'2023-11-21 22:07:15'),
-(10,9,7,'2023-11-21 23:00:15'),
+INSERT INTO `users` VALUES
+(1,'João Silva','123.456.789-01','1990-01-01','joao@email.com','senha123'),
+(2,'Carlos Santos','456.789.012-34','1982-11-30','carlos@email.com','senha789'),
+(3,'Maria Oliveira','987.654.321-09','1985-05-15','maria@email.com','senha456'),
+(4,'Ana Lima','234.567.890-12','1992-08-12','ana@email.com','senha234'),
+(5,'Alyne Martins','065.120.957-12','1997-10-27','alyne@email.com','senha1206'),
+(6,'Joana Porfirio','458.687.253-12','1990-09-09','joana@email.com','senha524'),
+(7,'Conceição  Linhares','789.456.124-56','1987-12-12','conceicao@email.com','senha457'),
+(8,'Leonardo Meireles','4526.701.234-85','1995-12-12','leo@email.com','senha478'),
+(9,'Hanna Pereira','321.654.987-85','1987-10-10','hanna@email.com','senha753'),
+(10,'Jullie Jany','451.743.873-95','1996-01-03','jullie@email.com','senha852'),
+(11,'Judity Martins','987.452.337-96','2020-03-06','judity@email.com','senha951');
 
 INSERT INTO `posts` VALUES
 (1,3,'O leonardo é muito bonito.','2023-11-20 19:38:07',2),
@@ -253,17 +217,63 @@ INSERT INTO `posts` VALUES
 (11,1,'Não vou para prova dia 25.11','2023-11-22 13:33:55',0),
 (12,2,'Estou com fome!!','2023-11-22 13:30:55',0);
 
+INSERT INTO `comments` VALUES
+(5,1,4,'Se Deus permitir!!!','2023-11-20 20:37:34'),
+(6,2,3,'Calor dos infernoooo','2023-11-20 20:38:41'),
+(7,3,1,'E verdadeeee','2023-11-20 19:00:36'),
+(8,4,2,'Fiz um projeto com ele, mó legal','2023-11-20 18:00:01'),
+(9,5,10,'Eu também!!','2023-11-21 22:47:50'),
+(10,6,5,'Nem me faleeee','2023-11-21 22:40:50'),
+(11,7,6,'Os estudos que esta me matando','2023-11-21 22:00:50'),
+(12,8,7,'eu quero um pedaçooo','2023-11-21 13:47:50'),
+(13,9,8,'Me espera que vou junto','2023-11-21 12:49:09'),
+(14,10,9,'Mostra fotos, quero ver todos!','2023-11-21 20:49:09');
+
+INSERT INTO `comments` VALUES
+(5,1,4,'Se Deus permitir!!!','2023-11-20 20:37:34'),
+(6,2,3,'Calor dos infernoooo','2023-11-20 20:38:41'),
+(7,3,1,'E verdadeeee','2023-11-20 19:00:36'),
+(8,4,2,'Fiz um projeto com ele, mó legal','2023-11-20 18:00:01'),
+(9,5,10,'Eu também!!','2023-11-21 22:47:50'),
+(10,6,5,'Nem me faleeee','2023-11-21 22:40:50'),
+(11,7,6,'Os estudos que esta me matando','2023-11-21 22:00:50'),
+(12,8,7,'eu quero um pedaçooo','2023-11-21 13:47:50'),
+(13,9,8,'Me espera que vou junto','2023-11-21 12:49:09'),
+(14,10,9,'Mostra fotos, quero ver todos!','2023-11-21 20:49:09');
 
 
-INSERT INTO `users` VALUES
-(1,'João Silva','123.456.789-01','1990-01-01','joao@email.com','senha123'),
-(2,'Carlos Santos','456.789.012-34','1982-11-30','carlos@email.com','senha789'),
-(3,'Maria Oliveira','987.654.321-09','1985-05-15','maria@email.com','senha456'),
-(4,'Ana Lima','234.567.890-12','1992-08-12','ana@email.com','senha234'),
-(5,'Alyne Martins','065.120.957-12','1997-10-27','alyne@email.com','senha1206'),
-(6,'Joana Porfirio','458.687.253-12','1990-09-09','joana@email.com','senha524'),
-(7,'Conceição  Linhares','789.456.124-56','1987-12-12','conceicao@email.com','senha457'),
-(8,'Leonardo Meireles','4526.701.234-85','1995-12-12','leo@email.com','senha478'),
-(9,'Hanna Pereira','321.654.987-85','1987-10-10','hanna@email.com','senha753'),
-(10,'Jullie Jany','451.743.873-95','1996-01-03','jullie@email.com','senha852'),
-(11,'Judity Martins','987.452.337-96','2020-03-06','judity@email.com','senha951');
+INSERT INTO `likes` VALUES
+(2,1,4,'2023-11-20 21:05:39'),
+(3,1,3,'2023-11-20 21:00:28'),
+(4,2,1,'2023-11-20 20:40:28'),
+(5,3,2,'2023-11-20 21:09:28'),
+(6,4,4,'2023-11-20 21:05:28'),
+(7,5,10,'2023-11-21 23:07:15'),
+(8,6,10,'2023-11-21 23:00:15'),
+(9,9,5,'2023-11-21 22:07:15'),
+(10,9,7,'2023-11-21 23:00:15'),
+
+
+INSERT INTO `connections` VALUES
+(1,1,2,'2023-11-20 21:23:24'),
+(2,2,3,'2023-11-20 21:00:24'),
+(3,3,1,'2023-11-20 19:15:52'),
+(4,4,3,'2023-11-20 18:10:43'),
+(5,2,4,'2023-11-20 13:24:59'),
+(6,5,4,'2023-11-21 22:50:17'),
+(7,6,1,'2023-11-21 23:00:47'),
+(8,7,6,'2023-11-21 22:00:47'),
+(9,8,9,'2023-11-21 13:00:47'),
+(10,10,1,'2023-11-21 12:00:47');
+
+INSERT INTO `chats` VALUES
+(1,1,2,'Vamos sair para comer açai ?','2023-11-20 21:51:41'),
+(2,2,3,'Vai para faculdade amanha ?','2023-11-20 20:02:23'),
+(3,3,1,' Vai fazer o que amanha ?','2023-11-20 11:54:55'),
+(4,4,2,'Você vai fazer a prova quando ?','2023-11-20 13:20:55'),
+(5,5,4,'Comprou algo na blackfriday?','2023-11-21 22:42:58'),
+(6,6,1,'Vai fazer o que no fim de semana ?','2023-11-21 22:00:58'),
+(7,7,4,'Começou a fazer o trabalho?','2023-11-21 21:30:58'),
+(8,8,1,'Esta fazendo o que agora ?','2023-11-21 13:42:58'),
+(9,9,2,'Gostou do açai de ontem ?','2023-11-21 22:43:56'),
+(10,10,3,'Não consegui entender nada da aula..','2023-11-21 22:40:21');
