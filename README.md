@@ -1,4 +1,4 @@
-# SocialMedia_SQL
+# SocialMedia_SQL #
 Simple DB for SocialMedia
 
 MySQL Database Setup Using MySQL Workbench
