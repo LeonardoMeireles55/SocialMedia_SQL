@@ -5,7 +5,7 @@ MySQL Database Setup Using MySQL Workbench
 Overview
   - This README provides instructions for using MySQL Workbench to run an SQL script to create and populate a MySQL database.
 
-Prerequisites:
+Pre-requisites:
   - MySQL Server: Ensure that MySQL Server is installed on your machine. You can download it from the official MySQL website.
   - MySQL Workbench: Download and install MySQL Workbench from the official MySQL Workbench website.
 Database Setup
